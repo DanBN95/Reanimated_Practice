@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native'
-import { screensEnabled } from 'react-native-screens';
+
 
 const HomeScreen = () => {
 
@@ -23,6 +23,10 @@ const HomeScreen = () => {
         {
             name: 'Go to Theme Changer Screen',
             onClick: () => navigation.navigate('ThemeChanger')
+        },
+        {
+            name: 'Go to Coins Base Pro Screen',
+            onClick: () => navigation.navigate('CoinsbasePro')
         },
     ]
 

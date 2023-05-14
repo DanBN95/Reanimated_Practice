@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native'
 import React from 'react'
 import Animated, { useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
-import { PanGestureHandler, PanGestureHandlerGestureEvent } from 'react-native-gesture-handler';
+import { GestureHandlerRootView, PanGestureHandler, PanGestureHandlerGestureEvent } from 'react-native-gesture-handler';
 
 const SIZE = 100.0;
 const CIRCLE_RADIUS = SIZE * 2;
@@ -14,6 +14,7 @@ type ContextType = {
 const SquareInsideCircle = () => {
     const translateX = useSharedValue(0);
     const translateY = useSharedValue(0);
+    console.log('here')
 
     const panGestureEvent = useAnimatedGestureHandler<
         PanGestureHandlerGestureEvent,
@@ -52,11 +53,13 @@ const SquareInsideCircle = () => {
 
 
   return (
-    <View style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.circle}>
+        <GestureHandlerRootView>
             <PanGestureHandler onGestureEvent={panGestureEvent}>
                 <Animated.View style={[styles.square, rStyle]} />
             </PanGestureHandler>
+    </GestureHandlerRootView>
         </View>
     </View>
   )
